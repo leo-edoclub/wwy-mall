@@ -11,6 +11,12 @@
     <modules>
         <module>wwy-mall-admin</module>
         <module>wwy-mall-core</module>
+        <module>wwy-mall-pms</module>
+        <module>wwy-mall-oms</module>
+        <module>wwy-mall-ums</module>
+        <module>wwy-mall-sms</module>
+        <module>wwy-mall-wms</module>
+        <module>wwy-generator</module>
     </modules>
 
 
@@ -25,8 +31,8 @@
         <java.version>1.8</java.version>
         <spring-cloud.version>Hoxton.SR8</spring-cloud.version>
         <spring-cloud.nacos.version>2.2.3.RELEASE</spring-cloud.nacos.version>
-        <swagger.version>2.9.2</swagger.version>
-        <mybatisplus.version>3.0.7.1</mybatisplus.version>
+        <swagger.version>3.0.0</swagger.version>
+        <mybatisplus.version>3.4.2</mybatisplus.version>
     </properties>
 
     <dependencyManagement>
