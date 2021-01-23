@@ -5,6 +5,8 @@ import com.wwy.mall.pms.entity.AttrAttrgroupRelationEntity;
 import com.wwy.core.bean.PageVo;
 import com.wwy.core.bean.QueryCondition;
 
+import java.util.List;
+
 
 /**
  * 属性&属性分组关联
@@ -16,5 +18,7 @@ import com.wwy.core.bean.QueryCondition;
 public interface AttrAttrgroupRelationService extends IService<AttrAttrgroupRelationEntity> {
 
     PageVo queryPage(QueryCondition params);
+
+    void deleteByAttrIdAndGroupId(List<AttrAttrgroupRelationEntity> relationEntities);
 }
 

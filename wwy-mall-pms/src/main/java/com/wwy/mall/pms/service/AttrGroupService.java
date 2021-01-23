@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.wwy.mall.pms.entity.AttrGroupEntity;
 import com.wwy.core.bean.PageVo;
 import com.wwy.core.bean.QueryCondition;
+import com.wwy.mall.pms.vo.AttrGroupVO;
 
 
 /**
@@ -16,5 +17,9 @@ import com.wwy.core.bean.QueryCondition;
 public interface AttrGroupService extends IService<AttrGroupEntity> {
 
     PageVo queryPage(QueryCondition params);
+
+    PageVo getAttrgroupsByCatId(String catId ,QueryCondition params);
+
+    AttrGroupVO queryAttrGroupWithAttrByGroupId(Integer groupid);
 }
 

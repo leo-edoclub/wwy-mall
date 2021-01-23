@@ -5,6 +5,8 @@ import com.wwy.mall.pms.entity.CategoryEntity;
 import com.wwy.core.bean.PageVo;
 import com.wwy.core.bean.QueryCondition;
 
+import java.util.List;
+
 
 /**
  * 商品三级分类
@@ -16,5 +18,7 @@ import com.wwy.core.bean.QueryCondition;
 public interface CategoryService extends IService<CategoryEntity> {
 
     PageVo queryPage(QueryCondition params);
+
+    List<CategoryEntity> querryCategoryByPidOrLevel(Integer level, Integer pid);
 }
 

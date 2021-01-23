@@ -1,6 +1,7 @@
 package com.wwy.mall.pms.controller;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 
@@ -31,6 +32,19 @@ import com.wwy.mall.pms.service.CategoryService;
 public class CategoryController {
     @Autowired
     private CategoryService categoryService;
+
+    /**
+     * 根据分类层级和父id查询蕾蕾列表
+     * @param level
+     * @param pid
+     * @return
+     */
+    @ApiOperation("根据分类层级和父id查询蕾蕾列表")
+    @GetMapping
+    public Resp<List<CategoryEntity>> querryCategoryByPidOrLevel(@RequestParam(value = "level",defaultValue = "0") Integer level,Integer pid) {
+
+        return Resp.ok(categoryService.querryCategoryByPidOrLevel(level, pid));
+    }
 
     /**
      * 列表

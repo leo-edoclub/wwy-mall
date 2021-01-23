@@ -37,8 +37,8 @@ public class SpuInfoController {
      */
     @ApiOperation("分页查询(排序)")
     @GetMapping("/list")
-    public Resp<PageVo> list(QueryCondition queryCondition) {
-        PageVo page = spuInfoService.queryPage(queryCondition);
+    public Resp<PageVo> list(QueryCondition queryCondition,Long catId,String key) {
+        PageVo page = spuInfoService.queryPage(queryCondition,catId,key);
 
         return Resp.ok(page);
     }

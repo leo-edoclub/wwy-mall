@@ -15,6 +15,6 @@ import com.wwy.core.bean.QueryCondition;
  */
 public interface SpuInfoService extends IService<SpuInfoEntity> {
 
-    PageVo queryPage(QueryCondition params);
+    PageVo queryPage(QueryCondition params,Long catId,String key);
 }
 

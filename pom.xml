@@ -17,6 +17,8 @@
         <module>wwy-mall-sms</module>
         <module>wwy-mall-wms</module>
         <module>wwy-generator</module>
+        <module>wwy-mall-gateway</module>
+        <module>wwy-mall-interface</module>
     </modules>
 
 

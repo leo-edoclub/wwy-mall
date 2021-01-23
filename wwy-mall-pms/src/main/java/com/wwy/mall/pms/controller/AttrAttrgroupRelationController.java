@@ -1,15 +1,18 @@
 package com.wwy.mall.pms.controller;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.wwy.core.bean.PageVo;
 import com.wwy.core.bean.QueryCondition;
 import com.wwy.core.bean.Resp;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.*;
 
 import com.wwy.mall.pms.entity.AttrAttrgroupRelationEntity;
@@ -32,6 +35,17 @@ public class AttrAttrgroupRelationController {
     @Autowired
     private AttrAttrgroupRelationService attrAttrgroupRelationService;
 
+
+    @ApiOperation("删除关联关系")
+    @PostMapping("delete/attr")
+    public Resp deleteByAttrIdAndGroupId(@RequestBody List<AttrAttrgroupRelationEntity> relationEntities) {
+        if(relationEntities==null || relationEntities.size()==0) {
+            return Resp.ok(null);
+        }
+
+        this.attrAttrgroupRelationService.deleteByAttrIdAndGroupId(relationEntities);
+        return Resp.ok(null);
+    }
     /**
      * 列表
      */

@@ -7,8 +7,8 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
     #MySQL配置
     driverClassName: com.mysql.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/wwy-sms?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8
-    username: sms
+    url: jdbc:mysql://127.0.0.1:3306/wwy-wms?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8
+    username: wms
     password: 123456
     #oracle配置
     #    driverClassName: oracle.jdbc.OracleDriver

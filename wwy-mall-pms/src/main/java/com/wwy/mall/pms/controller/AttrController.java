@@ -7,8 +7,11 @@ import java.util.Map;
 import com.wwy.core.bean.PageVo;
 import com.wwy.core.bean.QueryCondition;
 import com.wwy.core.bean.Resp;
+import com.wwy.core.exception.RRException;
+import com.wwy.mall.pms.vo.AttrVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,6 +34,18 @@ import com.wwy.mall.pms.service.AttrService;
 public class AttrController {
     @Autowired
     private AttrService attrService;
+
+    @ApiOperation("属性分页查询")
+    @GetMapping
+    public Resp<PageVo> queryAttrByCid(QueryCondition queryCondition,String cid,Integer type) {
+        if (cid == null || StringUtils.equals(cid,"")) {
+            throw new RRException("分类id为空，请选择分类信息！");
+        }
+        PageVo pageVo = attrService.queryAttrByCid(queryCondition,cid,type);
+
+        return Resp.ok(pageVo);
+
+    }
 
     /**
      * 列表
@@ -60,8 +75,8 @@ public class AttrController {
      */
     @ApiOperation("保存")
     @PostMapping("/save")
-    public Resp<Object> save(@RequestBody AttrEntity attr){
-		attrService.save(attr);
+    public Resp<Object> save(@RequestBody AttrVO attrVO){
+		attrService.saveAttr(attrVO);
 
         return Resp.ok(null);
     }

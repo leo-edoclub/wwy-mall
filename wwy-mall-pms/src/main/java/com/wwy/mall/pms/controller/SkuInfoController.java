@@ -1,12 +1,15 @@
 package com.wwy.mall.pms.controller;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.wwy.core.bean.PageVo;
 import com.wwy.core.bean.QueryCondition;
 import com.wwy.core.bean.Resp;
+import com.wwy.core.exception.RRException;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +35,15 @@ public class SkuInfoController {
     @Autowired
     private SkuInfoService skuInfoService;
 
+    @ApiOperation("根据spuId查询所有的sku")
+    @GetMapping("{spuid}")
+    public Resp<List<SkuInfoEntity>> querySkuBySpuid(Long spuid) {
+        if (spuid == null) {
+            throw new RRException("spuid 为空");
+        }
+        List<SkuInfoEntity> list = skuInfoService.list(new QueryWrapper<SkuInfoEntity>().eq("spu_id", spuid));
+        return Resp.ok(list);
+    }
     /**
      * 列表
      */
